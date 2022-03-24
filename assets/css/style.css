@@ -234,13 +234,13 @@ section:not(.hero-section) {
     z-index: 2;
     position: relative;
 }
-.portrait-container .picture {
-    background-color: var(--accent);
-    background-image: url(../img/propic.jpg);
+.portrait-container img {
+    background-color: var(--neutral);
+    /* background-image: url(../img/propic.jpg);
     background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
+    background-repeat: no-repeat; */
+    /* width: 100%;
+    height: 100%; */
 }
 .portrait-container .outline {
     border: 1px solid var(--accent);
