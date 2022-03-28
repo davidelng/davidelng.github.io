@@ -81,7 +81,7 @@ a {
 }
 
 a:focus {
-    border: 3px solid var(--white);
+    outline: 2px solid var(--white);
 }
 
 address {
@@ -113,11 +113,16 @@ abbr {
 
 /* HEADER */
 .primary-header {
-    padding: 2rem;
+    padding: 1rem 2rem;
     background-color: var(--black);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 30;
 }
 
 .logo {
@@ -131,6 +136,10 @@ abbr {
 }
 
 /* MAIN */
+main {
+    margin-top: 4rem;
+}
+
 section:not(.hero-section) {
     margin-bottom: 3rem;
     display: flex;
@@ -262,6 +271,15 @@ section:not(.hero-section) {
     list-style-image: url(../img/list-icon.png);
 }
 
+.site-anchor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    max-width: 30rem;
+}
+
 /** Work section **/
 .projects-list {
     display: grid;
@@ -317,6 +335,42 @@ section:not(.hero-section) {
     justify-content: center;
 }
 
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    margin: auto;
+    max-width: 30rem;
+    font-size: 1rem;
+}
+.contact-form input,
+.contact-form textarea {
+    padding: 1rem;
+    background: var(--neutral);
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.contact-form input[type="submit"] {
+    background: transparent;
+    width: 100%;
+    color: var(--neutral);
+    border: 1px solid var(--neutral);
+    border-radius: 0;
+    max-width: 10rem;
+    margin: 1rem auto;
+}
+
+.contact-form input[type="submit"]:hover {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: var(--black);
+    cursor: pointer;
+}
+
 /* FOOTER */
 .primary-footer {
     padding: 1rem;
@@ -335,11 +389,12 @@ section:not(.hero-section) {
 
 .button {
     padding: 1rem;
-    margin: 2rem auto 8rem;
+    margin: 2rem auto;
     border: 2px solid var(--neutral);
     color: var(--neutral);
     display: block;
-    max-width: 10rem;
+    max-width: 12rem;
+    width: 100%;
     text-align: center;
     position: relative;
     transition: all 0.1s ease;
@@ -383,16 +438,17 @@ section:not(.hero-section) {
 
     /* HEADER */
     .primary-header {
-        padding: 2rem 5rem 0;
+        padding: 1rem 5rem;
     }
 
     /** Navigation **/
+    /*
     .primary-nav a {
         color: var(--black);
         z-index: 1000;
         position: relative;
         border-color: #15141a99;
-    }
+    } */
 
     /* MAIN */
     .section-title {
@@ -405,6 +461,10 @@ section:not(.hero-section) {
 
     .right-hr::before {
         margin: 25px 10px 0 0;
+    }
+
+    .site-anchor {
+        flex-direction: row;
     }
 
     /** Hero section **/
@@ -424,8 +484,10 @@ section:not(.hero-section) {
     .style-banner {
         grid-column: 9/-1;
         grid-row: 1/1;
-        margin-top: -3rem;
-        margin-bottom: -5.7rem;
+        align-self: center;
+        height: 60%;
+        /* margin-top: -3rem;
+        margin-bottom: -5.7rem; */
     }
     .portrait-container {
         grid-column: 7/11;

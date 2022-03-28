@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Contact | Davide Longo</title>
+        <link
+            rel="shortcut icon"
+            href="assets/img/favicon.ico"
+            type="image/x-icon"
+        />
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+        ></script>
+        <script type="text/javascript">
+            (function () {
+                emailjs.init("USER_ID");
+            })();
+        </script>
+        <script type="text/javascript">
+            window.onload = function () {
+                document
+                    .getElementById("contact-form")
+                    .addEventListener("submit", function (event) {
+                        event.preventDefault();
+                        this.contact_number.value =
+                            (Math.random() * 100000) | 0;
+                        emailjs
+                            .sendForm("SERVICE_ID", "TEMPLATE_ID", this)
+                            .then(
+                                function () {
+                                    console.log("SUCCESS!");
+                                },
+                                function (error) {
+                                    console.log("FAILED...", error);
+                                }
+                            );
+                    });
+            };
+        </script>
+    </head>
+    <body>
+        <header class="primary-header">
+            <a href="#main-content" id="skip-nav" class="a11y-nav"
+                >Skip to content</a
+            >
+            <img
+                class="logo"
+                src="assets/img/logo.png"
+                alt="A yellow filled square, the main logo"
+            />
+            <nav class="primary-nav">
+                <ul class="nav-list">
+                    <li class="nav-link">
+                        <a class="link" href="./index.html">About</a>
+                    </li>
+                    <li class="nav-link">
+                        <a class="link" href="./portfolio.html">Work</a>
+                    </li>
+                    <li class="nav-link">
+                        <a class="link" href="./contact.html">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main id="main-content">
+            <section class="contact-section" aria-labelledby="contact-title">
+                <div class="section-container">
+                    <h2 class="section-title left-hr" id="contact-title">
+                        Contacts
+                    </h2>
+                    <div class="container">
+                        <h3>Get in touch</h3>
+                        <p>
+                            My inbox is always open. Whether you have a question
+                            or asking for a feedback, I'll try my best to get
+                            back to you!
+                        </p>
+                        <form class="contact-form" id="contact-form">
+                            <input type="hidden" name="contact_number" />
+                            <label for="name">Name</label>
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Your name"
+                                required
+                            />
+                            <label for="email">Email</label>
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Your email"
+                                required
+                            />
+                            <label for="message">Message</label>
+                            <textarea
+                                name="message"
+                                placeholder="Type something..."
+                                required
+                            ></textarea>
+                            <input type="submit" value="Send" />
+                        </form>
+                        <h3>Or find me elsewhere on the internet</h3>
+                        <address>
+                            <ul class="social-list">
+                                <li>
+                                    <a
+                                        class="link"
+                                        href="https://github.com/davidelng"
+                                        target="_blank"
+                                        >GitHub</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="link"
+                                        href="https://codepen.io/davidelng"
+                                        target="_blank"
+                                        >Codepen</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="link"
+                                        href="https://www.linkedin.com/in/davidelng"
+                                        target="_blank"
+                                        >LinkedIn</a
+                                    >
+                                </li>
+                            </ul>
+                        </address>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="primary-footer">
+            <p>
+                Designed & Built by
+                <a
+                    class="link"
+                    href="https://github.com/davidelng"
+                    target="_blank"
+                    >Davide Longo</a
+                >
+            </p>
+        </footer>
+    </body>
+</html>
